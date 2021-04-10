@@ -1,5 +1,8 @@
 # Load test
 
+[![GoDoc](https://godoc.org/github.com/alr-lab/load-test?status.svg)](https://godoc.org/github.com/alr-lab/load-test)
+[![Go Report Card](https://goreportcard.com/badge/github.com/alr-lab/load-test)](https://goreportcard.com/report/github.com/alr-lab/load-test)
+
 ## Getting started
 
 ```
