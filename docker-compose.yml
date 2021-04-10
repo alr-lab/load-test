@@ -1,6 +1,34 @@
 version: "3.8"
+
 services:
     server:
         build: .
         ports:
             - "8080:8080"
+
+    grafana:
+        image: grafana/grafana:7.5.3
+        ports:
+            - "3000:3000"
+        networks:
+            - grafana
+        volumes:
+            - grafana_data
+
+    influxdb:
+        image: influxdb:1.8
+        ports:
+            - "8086:8086"
+        networks:
+            - grafana
+        volumes:
+            - influxdb_data
+        environment:
+            - INFLUXDB_DB=load
+
+networks:
+    grafana:
+
+volumes:
+    grafana_data:
+    influxdb_data:
