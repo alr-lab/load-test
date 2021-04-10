@@ -13,7 +13,12 @@ services:
         networks:
             - grafana
         volumes:
-            - grafana_data
+            - grafana_data:/var/lib/grafana
+            - ./docker/grafana:/etc/grafana/provisioning
+        environment:
+            - GF_AUTH_ANONYMOUS_ENABLED=true
+            - GF_AUTH_BASIC_ENABLED=false
+            - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
 
     influxdb:
         image: influxdb:1.8
@@ -22,7 +27,7 @@ services:
         networks:
             - grafana
         volumes:
-            - influxdb_data
+            - influxdb_data:/var/lib/influxdb
         environment:
             - INFLUXDB_DB=load
 
