@@ -10,11 +10,17 @@ func main() {
 	log.Print("starting...")
 	defer log.Print("done")
 
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/foo", foo)
+	http.HandleFunc("/bar", bar)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func handler(res http.ResponseWriter, _ *http.Request) {
-	log.Print("handling request")
-	fmt.Fprintf(res, "Hello, world!\n")
+func foo(res http.ResponseWriter, _ *http.Request) {
+	log.Printf("handling %q request", "foo")
+	fmt.Fprintln(res, "Hello, world!")
+}
+
+func bar(res http.ResponseWriter, _ *http.Request) {
+	log.Printf("handling %q request", "bar")
+	fmt.Fprintln(res, "1337")
 }

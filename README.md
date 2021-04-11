@@ -11,6 +11,8 @@ Using _virtual users_, we request our applications using different patterns
 we will describes below. Each _virtual user_ simulate a user session and may
 perform tests on the response.
 
+## Tools
+
 We are using [k6][k6] as the load test tool to describe and run our load
 tests. Using [Grafana][grafana] and [InfluxDB][influxdb] we are following the
 actual tests such as the application throughput, the number of virtual users,
@@ -19,36 +21,20 @@ the response time... And by using [Docker][docker] and
 that you can play with the [k6 script](/script.js) without having to worry
 about how to install all those tools.
 
-## CLI
+## Getting started
 
-1. Getting started
+```
+$ docker-compose up -d
+```
 
-    ```
-    $ docker-compose up -d server
-    ```
+## Usage
 
-2. Usage
+```
+$ docker run --net=host -i loadimpact/k6 \
+    run --out influxdb=http://localhost:8086/load - <script.js
+```
 
-    ```
-    $ docker run -i --net=host loadimpact/k6 run - <script.js
-    ```
-
-## Dashboard
-
-1. Getting started
-
-    ```
-    $ docker-compose up -d
-    ```
-
-2. Usage
-
-    ```
-    $ docker run --net=host -i loadimpact/k6 \
-        run --out influxdb=http://localhost:8086/load - <script.js
-    ```
-
-    Dashboard is available at http://localhost:3000/d/ooH6ce_Mz/load-test
+Dashboard is available at http://localhost:3000/d/ooH6ce_Mz/load-test
 
 ![Screenshot from 2021-04-10 03-25-12](https://user-images.githubusercontent.com/9620174/114253849-67cf5e00-99ac-11eb-880e-bdbb7fe07bc0.png)
 
