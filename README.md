@@ -36,7 +36,7 @@ $ docker run --net=host -i loadimpact/k6 \
 
 Dashboard is available at http://localhost:3000/d/ooH6ce_Mz/load-test
 
-![Screenshot from 2021-04-10 03-25-12](https://user-images.githubusercontent.com/9620174/114253849-67cf5e00-99ac-11eb-880e-bdbb7fe07bc0.png)
+![Screenshot from 2021-04-16 20-22-47](https://user-images.githubusercontent.com/9620174/115067672-8cb65a80-9ef1-11eb-812a-dd85817ecc4b.png)
 
 [k6]: https://k6.io/
 [grafana]: https://grafana.com/
